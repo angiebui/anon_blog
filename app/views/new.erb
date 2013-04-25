@@ -1,0 +1,24 @@
+<!-- Create a new post  -->
+
+<div class="container">
+  <header>
+    <h1> New Blog Post </h1> 
+  </header>
+
+<!-- Note: can you post[title] etc to create a params[:post] to fill in everything.  -->
+
+ <form action="/post/new" method = "post">
+  <p>Title:<input type="text" name="title"><br></p>
+  <p>Body:<textarea rows="4" cols="50" placeholder="Share your thoughts" name="body"></textarea><br></p>
+  <% @tags.each do |tag| %> 
+    <p>Tags: <input id="post_tags" name="tags" value=<%=tag.name %>><br></p>
+  <% end %>
+
+  <p><input type="submit" value="Post"><br></p>
+ </form>
+
+
+  <div class="footer">
+    &copy; Fiery Skippers Unite
+  </div> 
+</div>

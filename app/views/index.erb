@@ -1,0 +1,20 @@
+<!-- Homepage of all posts  -->
+
+<div class="container">
+  <header>
+    <h1> Angie's Janky Blog</h1> 
+  </header>
+ 
+<ul>
+<% @posts.each do |post| %>
+  <li>
+    <h2><a href="/post/<%= post.id %>"><%= post.title %></a>
+    <span><%= format_date(post.created_at) %></span></h2>
+  </li>
+<% end %>
+</ul>
+
+  <div class="footer">
+    &copy; Fiery Skippers Unite
+  </div> 
+</div>
