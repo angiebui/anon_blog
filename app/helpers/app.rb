@@ -12,7 +12,6 @@ helpers do
    time.strftime("%d %b %Y")
   end
 
-
   def tag_names(post_id)
     tag_ids = find_tag_ids(post_id)
     tag_ids.map {|id| Tag.find_by_id(id).name} # will be an array of names ["Food", "Misc"]
@@ -22,6 +21,18 @@ helpers do
     post_tags = PostTag.where("post_id = ?", post_id)
     post_tags.map {|e| e.tag_id} # will be in an array [3, 2] 
   end
+
+
+
+  def check_tag(tag_name)
+    tag = Tag.find_or_create_by_name(tag_name)
+  end
+
+  def find_tag_id(tag_name)
+    Tag.find_by_name(tag_name).id
+  end
+
+
 end 
 
 

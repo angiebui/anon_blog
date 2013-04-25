@@ -7,10 +7,14 @@ end
 
 
 post '/post' do
-  @post = Post.new(params[:post])
+  tag = check_tag(params[:tag])
+  @post = Post.new(:title => params[:title], :body => params[:body])
+  @post.tags << tag if tag.valid?
+
   if @post.save 
     redirect "post/#{@post.id}"
   else
+    @errors = @post.errors.full_messages
     erb :new
   end
 end
