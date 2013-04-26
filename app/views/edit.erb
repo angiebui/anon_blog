@@ -1,5 +1,5 @@
 <div class="container">
-<h1> Edit Post </h1>
+<header><h1> Edit Post </h1></header>
 
 <%if @errors %>
   <% @errors.each do |message| %>
@@ -7,17 +7,22 @@
   <% end %>
 <% end %>
 
-<form action="/post/<%= @post.id %>" method="put">
+<form action="/post/<%= @post.id %>" method="post">
 
-  <p><label for="post_title">Title:</label><br />
+  <p><label for="post_title">Title:</label><br/>
   <input id= "title" name="title" type="text" value="<%= @post.title %>" /></p>
 
-  <p><label for="post_body">Body:</label><br />
-  <textarea id="body" name="body" rows="5"><%= @post.body %></textarea></p>
+  <p><label for="post_body">Body:</label><br/>
+  <textarea id="body" name="body" rows="5" cols="60"><%= @post.body %></textarea></p>
 
-  <p><label for="post_tags">Tags:</label><br />
-  <input id="tags" name="tags" type="text" value="<%= tag_names(@post.tags)%>"></p>
-
-  <br><input type="submit" value="Edit Post" />
+  <p><label for="post_tags">Tags:</label><br/>
+  <input id="tags" name="tags" type="text" value="<%= tag_names(@post.tags).join(', ')%>"></p>
+  <input type="hidden" name="_method" value="put"/> 
+  <br><input type="submit" value="Update"/>
 </form> 
+
+  <form action="/post/<%= @post.id %>" method="post">
+    <input type="hidden" name="_method" value="delete"/> 
+    <input type="submit" value="Delete Post"/>
+  </form>
 </div>

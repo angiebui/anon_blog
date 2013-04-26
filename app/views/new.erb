@@ -12,16 +12,11 @@
 
  <form action="/post" method = "post">
   <p>Title:<input type="text" name="title"><br></p>
-  <p>Body:<textarea rows="4" cols="50" placeholder="Share your thoughts" name="body"></textarea><br></p>
+  <p>Body:<textarea rows="5" cols="60" placeholder="Share your thoughts" name="body"></textarea><br></p>
   <p>Tags: <input id="post_tags" name="tags"><br></p>
 
   <p><input type="submit" value="Post"><br></p>
  </form>
 
-
-  <div class="footer">
-    &copy; Fiery Skippers Unite
-  </div> 
-
-  <%= erb :nav, layout => false %>
+ <%= erb :nav, layout => false %>
 </div>

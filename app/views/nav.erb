@@ -1,16 +1,17 @@
 <body>
   <ul>
-    <% unless home %>
-    <li><a href="/">Home</a></li>
-    <% end %> 
-    
-    <% unless new_post_page %>       
-      <li><a href="/post/new">New Post</a></li>  
-    <% end %>                           
+    <li><a href="/">Home</a></li>                         
     
     <% if post_show_page? %>
       <li><a href="/post/<%= @post.id %>/edit">Edit Post</a></li>
-      <li><a href="/post/<%= @post.id %>/delete">Delete Post</a></li>
     <% end %>
+
+    <% unless new_post_page %>       
+      <li><a href="/post/new">New Post</a></li>  
+    <% end %>  
   </ul>
+
+  <div class="footer">
+    &copy; Fiery Skippers Unite
+  </div> 
 </body>

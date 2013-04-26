@@ -20,6 +20,16 @@ helpers do
     Tag.find_by_name(tag_name).posts
   end
 
+  def update_tags(post, tags)
+    tags_to_delete = (post.tags.map{|tag| tag.name}) & tags 
+    if tags_to_delete != []
+      delete_ids = tags_to_delete.map {|tag| Tag.find_by_name(tag).id}.uniq
+      delete_ids.map {|id| PostTag.find_by_post_id_and_tag_id(post.id, id)}.each {|post_tag| post_tag.destroy.save}
+    end
+
+    check_tags((post.tags.map{|tag| tag.name}) - tags)
+  end
+
   def post_show_page?
     request.path_info =~ /\/post\/\d+$/
   end
@@ -32,7 +42,7 @@ helpers do
     request.path_info =~ /\/post\/new/
   end
 
-  def home
+  def home_page
     request.path_info =~ /\//
   end
 end 

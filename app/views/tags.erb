@@ -3,17 +3,14 @@
     <h1><%= @tag_name %></h1> 
   </header>
  
-<ul>
-<% @posts.each do |post| %>
-  <li>
-    <h2><a href="/post/<%= post.id %>"><%= post.title %></a>
-    <span><%= format_date(post.created_at) %></span></h2>
-  </li>
-<% end %>
-</ul>
+  <ul>
+  <% @posts.each do |post| %>
+    <li>
+      <h3><a href="/post/<%= post.id %>"><%= post.title %></a>
+      <span><%= format_date(post.created_at) %></span></h3>
+    </li>
+  <% end %>
+  </ul>
 
-  <div class="footer">
-    &copy; Fiery Skippers Unite
-  </div> 
-  <%= erb :nav, layout => false %>
+  <span id="nav"><%= erb :nav, layout => false %></span>
 </div>

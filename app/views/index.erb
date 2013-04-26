@@ -2,19 +2,15 @@
   <header>
     <h1> Angie's Janky Blog</h1> 
   </header>
-
- <%= erb :nav, layout => false %>
  
 <ul>
 <% @posts.each do |post| %>
   <li>
-    <h2><a href="/post/<%= post.id %>"><%= post.title %></a>
-    <span><%= format_date(post.created_at) %></span></h2>
+    <h3><a href="/post/<%= post.id %>"><%= post.title %></a>
+    <span><%= format_date(post.created_at) %></span></h3>
   </li>
 <% end %>
 </ul>
 
-  <div class="footer">
-    &copy; Fiery Skippers Unite
-  </div> 
+<span id="nav"><%= erb :nav, layout => false %></span>
 </div>

@@ -5,7 +5,7 @@ end
 
 post '/post' do
   @post = Post.new(:title => params[:title], :body => params[:body])
-  tags = check_tags(params[:tags].split(","))
+  tags = check_tags(params[:tags].split(", "))
   @post.tags << tags 
   
   if @post.save 
@@ -16,13 +16,11 @@ post '/post' do
   end
 end
 
-
 get '/post/:id' do
   @post = Post.find(params[:id])
   @title = @post.title
   erb :post
 end
-
 
 get "/post/:id/edit" do
   @post = Post.find(params[:id])
@@ -30,13 +28,17 @@ get "/post/:id/edit" do
   erb :edit
 end
 
+# need to check for new ids - not add existing ones 
 put "/post/:id" do
   @post = Post.find(params[:id])
-  tags = check_tags(params[:tags].split(","))
-  @post.tags << tags 
+  puts "#{params[:tags].inspect}"
+  @post.tags.map{|tag| tag.name}.inspect
+  update_tags = update_tags(@post, (params[:tags].split(", ")))
+  @post.tags << update_tags
+  @post.update_attributes(:title => params[:title], :body => params[:body])
 
-  if @post.update_attributes!(:title => params[:title], :body => params[:body])
-    redirect "/posts/#{@post.id}"
+  if @post.save
+    redirect "/post/#{@post.id}"
   else
     @errors = @post.errors.full_messages
     erb :edit

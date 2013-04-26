@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h2><%= @post.title %></h2>
+  <header><h1><%= @post.title %></h1></header>
   <p><%= @post.body %></p>
   
   <% if @post.tags != [] %> 
@@ -10,5 +10,5 @@
     <% end %></p>
   <% end %>
 
-  <%= erb :nav, layout => false %>
+  <span id="nav"><%= erb :nav, layout => false %></span>
 </div>

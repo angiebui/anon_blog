@@ -4,10 +4,25 @@
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
 }
+
 th {
   text-align: left;
 }
 
 .errors {
 	color: red;
+}
+
+h2 {
+
+
+}
+
+header {
+	color: darkorange;
+
+}
+
+.footer {
+
 }
