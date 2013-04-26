@@ -4,7 +4,7 @@ helpers do
   end
 
   def tag_names(tags) #tag objects
-    names = tags.map {|tag| tag.name}.join(', ')
+    names = tags.map {|tag| tag.name}
   end
 
   def check_tags(tags)
@@ -18,6 +18,14 @@ helpers do
 
   def get_posts(tag_name)
     Tag.find_by_name(tag_name).posts
+  end
+
+  def post_show_page?
+    request.path_info =~ /\/posts\/\d+$/
+  end
+
+  def delete_post_button(post_id)
+    erb :_delete_post_button, locals: { post_id: post_id}
   end
 
 end 

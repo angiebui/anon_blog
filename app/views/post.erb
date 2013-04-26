@@ -1,7 +1,14 @@
 <div class="container">
+
   <h2><%= @post.title %></h2>
-    <p><%= @post.body %></p>
-    <% if @post.tags != [] %> 
-      <p>Tags: <%= tag_names(@post.tags) %></p>
-    <% end %>
+  <p><%= @post.body %></p>
+  
+  <% if @post.tags != [] %> 
+    <% @tags = tag_names(@post.tags) %>
+    <p>Tags: <% @tags.each do |tag| %>
+      <a href="/tag/<%= tag%>"> <%= tag %></a>
+    <% end %></p>
+  <% end %>
+
+  <%= erb :nav, layout => false %>
 </div>
