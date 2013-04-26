@@ -21,13 +21,20 @@ helpers do
   end
 
   def post_show_page?
-    request.path_info =~ /\/posts\/\d+$/
+    request.path_info =~ /\/post\/\d+$/
   end
 
   def delete_post_button(post_id)
     erb :_delete_post_button, locals: { post_id: post_id}
   end
 
+  def new_post_page
+    request.path_info =~ /\/post\/new/
+  end
+
+  def home
+    request.path_info =~ /\//
+  end
 end 
 
 

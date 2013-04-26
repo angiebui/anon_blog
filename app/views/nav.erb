@@ -1,10 +1,16 @@
 <body>
   <ul>
-    <li><a href="/">Home</a></li>           
-    <li><a href="/post/new">New Post</a></li>                             
+    <% unless home %>
+    <li><a href="/">Home</a></li>
+    <% end %> 
+    
+    <% unless new_post_page %>       
+      <li><a href="/post/new">New Post</a></li>  
+    <% end %>                           
+    
     <% if post_show_page? %>
       <li><a href="/post/<%= @post.id %>/edit">Edit Post</a></li>
-      <li><%= delete_post_button(@post.id) %></li>
+      <li><a href="/post/<%= @post.id %>/delete">Delete Post</a></li>
     <% end %>
   </ul>
 </body>
