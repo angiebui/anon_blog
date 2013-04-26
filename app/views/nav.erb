@@ -1,7 +1,6 @@
 <body>
-  <ul>
-    <li><a href="/">Home</a></li>                         
-    
+  <ul class="nav">
+    <li><a href="/">Home</a></li>                   
     <% if post_show_page? %>
       <li><a href="/post/<%= @post.id %>/edit">Edit Post</a></li>
     <% end %>

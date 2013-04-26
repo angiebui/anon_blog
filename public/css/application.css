@@ -1,8 +1,9 @@
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 650px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  font-family: Cambria, Georgia, serif;
 }
 
 th {
@@ -13,16 +14,49 @@ th {
 	color: red;
 }
 
-h2 {
+h3 {
+	line-height: 1.5em;
+}
 
-
+.posts {
+	font-family: Cambria, Georgia, serif;
 }
 
 header {
-	color: darkorange;
-
+	color: black;
+	background-color: lightgray;
+	text-align: center;
+	border: 1px dotted black;
+	height: 64px;
+	line-ehgith: 64px;
 }
 
 .footer {
+	float: bottom;
+	text-align: center;
 
+}
+
+.nav {
+	list-style-style: none;
+	color: white;
+	display: table;
+	margin: 10px 0px;
+}
+
+.nav a {
+	padding: 8px;
+	text-decoration: none;
+	border: 1px dotted gray;
+	color: #222;
+	background-color: lightgray;
+
+}
+
+.nav ol {
+	display: table-cell;
+	padding: 0px;
+}
+.nav li {
+	display: table-cell;
 }

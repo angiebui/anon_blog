@@ -1,9 +1,9 @@
 <div class="container">
   <header>
-    <h1> Angie's Janky Blog</h1> 
+    <h1>Angie's Blog ♥</h1> 
   </header>
  
-<ul>
+<ul class="posts">
 <% @posts.each do |post| %>
   <li>
     <h3><a href="/post/<%= post.id %>"><%= post.title %></a>
@@ -12,5 +12,5 @@
 <% end %>
 </ul>
 
-<span id="nav"><%= erb :nav, layout => false %></span>
+<%= erb :nav, layout => false %>
 </div>

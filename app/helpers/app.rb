@@ -33,8 +33,11 @@ helpers do
     ids.map {|tag_id| PostTag.delete_all("post_id = #{post.id} and tag_id = #{tag_id}")}
 
     tags_to_create = filter_tags(post, updated.flatten)
-    create_tags(tags_to_create).compact # something is a nil class here
+    create_tags(tags_to_create).compact
   end
+
+  # bug - can't add a tag that has already been created. need to append it. 
+  # issue might be because of the new_item.save part. 
 
   def filter_tags(post, tag_names)
     tag_names.map do |name|
