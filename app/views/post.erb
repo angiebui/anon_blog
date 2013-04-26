@@ -1,5 +1,7 @@
-<div class="content">
+<div class="container">
   <h2><%= @post.title %></h2>
-    <p><%= @post.body %></p> 
-    <p>Tags: <%= tag_names(@post.id).join(', ') %></p>
+    <p><%= @post.body %></p>
+    <% if @post.tags != [] %> 
+      <p>Tags: <%= tag_names(@post.tags) %></p>
+    <% end %>
 </div>

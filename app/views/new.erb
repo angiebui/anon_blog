@@ -1,5 +1,3 @@
-<!-- Create a new post  -->
-
 <div class="container">
   <header>
     <h1> New Blog Post </h1> 
@@ -11,12 +9,11 @@
     <% end %>
   <% end %>
 
-<!-- Note: can you post[title] etc to create a params[:post] to fill in everything.  -->
 
  <form action="/post" method = "post">
   <p>Title:<input type="text" name="title"><br></p>
   <p>Body:<textarea rows="4" cols="50" placeholder="Share your thoughts" name="body"></textarea><br></p>
-  <p>Tags: <input id="post_tags" name="tag"><br></p>
+  <p>Tags: <input id="post_tags" name="tags"><br></p>
 
   <p><input type="submit" value="Post"><br></p>
  </form>

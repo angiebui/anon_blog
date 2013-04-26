@@ -1,0 +1,23 @@
+<div class="container">
+<h1> Edit Post </h1>
+
+<%if @errors %>
+  <% @errors.each do |message| %>
+  <span class="errors"> <%= message %><br></span>
+  <% end %>
+<% end %>
+
+<form action="/post/<%= @post.id %>" method="put">
+
+  <p><label for="post_title">Title:</label><br />
+  <input id= "title" name="title" type="text" value="<%= @post.title %>" /></p>
+
+  <p><label for="post_body">Body:</label><br />
+  <textarea id="body" name="body" rows="5"><%= @post.body %></textarea></p>
+
+  <p><label for="post_tags">Tags:</label><br />
+  <input id="tags" name="tags" type="text" value="<%= tag_names(@post.tags)%>"></p>
+
+  <br><input type="submit" value="Edit Post" />
+</form> 
+</div>
