@@ -31,8 +31,6 @@ end
 # need to check for new ids - not add existing ones 
 put "/post/:id" do
   @post = Post.find(params[:id])
-  puts "#{params[:tags].inspect}"
-  @post.tags.map{|tag| tag.name}.inspect
   update_tags = update_tags(@post, (params[:tags].split(", ")))
   @post.tags << update_tags
   @post.update_attributes(:title => params[:title], :body => params[:body])

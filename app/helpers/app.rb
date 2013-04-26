@@ -21,6 +21,8 @@ helpers do
   end
 
   def update_tags(post, tags)
+    PostTag.delete_all("post_id = #{post.id}") if tags.empty? 
+    
     tags_to_delete = (post.tags.map{|tag| tag.name}) & tags 
     if tags_to_delete != []
       delete_ids = tags_to_delete.map {|tag| Tag.find_by_name(tag).id}.uniq
