@@ -28,11 +28,10 @@ get "/post/:id/edit" do
   erb :edit
 end
 
-# need to check for new ids - not add existing ones 
 put "/post/:id" do
   @post = Post.find(params[:id])
-  update_tags = update_tags(@post, (params[:tags].split(", ")))
-  @post.tags << update_tags
+  updated = update_tags(@post, (params[:tags].split(", ")))
+  @post.tags << updated
   @post.update_attributes(:title => params[:title], :body => params[:body])
 
   if @post.save

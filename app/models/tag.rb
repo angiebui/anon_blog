@@ -3,5 +3,4 @@ class Tag < ActiveRecord::Base
   has_many :post_tags 
 
   validates :name, :presence => true, :uniqueness => true 
-  
 end
