@@ -1,5 +1,4 @@
 get '/post/new' do
-  
   erb :new
 end
 
@@ -16,10 +15,15 @@ post '/post' do
   end
 end
 
-get '/post/:id' do
-  @post = Post.find(params[:id])
-  @title = @post.title
-  erb :post
+get '/post/:id' do 
+  @post = Post.where("id = ?", params[:id]).first
+  if @post 
+    @title = @post.title
+    erb :post
+  else
+    @errors = "Post not found."
+    erb :error
+  end
 end
 
 get "/post/:id/edit" do

@@ -17,7 +17,8 @@ helpers do
   end
 
   def get_posts(tag_name)
-    Tag.find_by_name(tag_name).posts
+    tag = Tag.find_by_name(tag_name)
+    tag ? tag.posts : nil 
   end
 
   def update_tags(post, new_tags)
